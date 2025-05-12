@@ -1,26 +1,71 @@
 [
-  {
-    "section": "Robots",
+{
+    "section": "",
     "models": [
       {
-        "file": "model1.glb",
-        "title": "Robot A",
-        "description": "Bipedal bot with sensors"
-      },
-      {
-        "file": "model2.glb",
-        "title": "Robot B",
-        "description": "Wheeled service bot"
+        "file": "2006 01 0018 Roach Conveyors Only.glb",
+        "title": "Roach Conveyors Only",
+        "description": "2006 01 0018"
       }
     ]
   },
   {
-    "section": "Vehicles",
+    "section": "Piston Body Models",
     "models": [
       {
-        "file": "model3.glb",
-        "title": "Truck",
-        "description": "Utility transport vehicle"
+        "file": "6062173-01-C18 body",
+        "title": "6062173-01-C18 body",
+        "description": "6062173-01-C18 body"
+      },
+	  {
+        "file": "4377099-03 C9 body.glb",
+        "title": "4377099-03 C9 body",
+        "description": "4377099-03 C9 body"
+      },
+	  {
+        "file": "3889354-02-C15 body.glb",
+        "title": "3889354-02-C15 body",
+        "description": "3889354-02-C15 body"
+      },
+	  {
+        "file": "3851657-03-C9 crown only.glb",
+        "title": "3851657-03-C9 crown only",
+        "description": "3851657-03-C9 crown only"
+      },
+	  {
+        "file": "3843698-03- C13 body.glb",
+        "title": "3843698-03- C13 body",
+        "description": "3843698-03- C13 body"
+      }
+    ]
+  },
+  {
+    "section": "Wrist Pin Models",
+    "models": [
+      {
+        "file": "5246478-01-C13 Pin.glb",
+        "title": "5246478-01-C13 Pin",
+        "description": "5246478-01-C13 Pin"
+      },
+	  {
+        "file": "5245566-01-C9 pin.glb",
+        "title": "5245566-01-C9 pin",
+        "description": "5245566-01-C9 pin"
+      },
+	  {
+        "file": "5245565-02-C15_C18 pin.glb",
+        "title": "5245565-02-C15_C18 pin",
+        "description": "5245565-02-C15_C18 pin"
+      },
+	  {
+        "file": "1807350-06-C15_C18 Pin.glb",
+        "title": "1807350-06-C15_C18 Pin",
+        "description": "1807350-06-C15_C18 Pin"
+      },
+      {
+        "file": "1663648-05-C9 pin for 2 piece piston.glb",
+        "title": "1663648-05-C9 pin for 2 piece piston",
+        "description": "1663648-05-C9 pin for 2 piece piston"
       }
     ]
   }
