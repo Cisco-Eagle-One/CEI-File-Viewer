@@ -81,6 +81,7 @@
       padding: 15px;
       border-radius: 8px;
       text-align: center;
+      position: relative;
       transition: background 0.3s;
     }
 
@@ -101,6 +102,30 @@
       color: inherit;
       opacity: 0.8;
     }
+
+    .fullscreen-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      z-index: 1;
+      transition: background-color 0.2s;
+    }
+
+    body.light .fullscreen-btn {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+    }
+
+    .fullscreen-btn:hover {
+      background-color: rgba(255, 255, 255, 1);
+    }
   </style>
 </head>
 <body>
@@ -113,6 +138,7 @@
   <div class="row">
     <div class="column">
       <div class="model-card">
+        <button onclick="openFullscreen(this)" class="fullscreen-btn">⛶</button>
         <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
         <h3>Robot</h3>
         <p>Sample animated robot model.</p>
@@ -121,6 +147,7 @@
 
     <div class="column">
       <div class="model-card">
+        <button onclick="openFullscreen(this)" class="fullscreen-btn">⛶</button>
         <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
         <h3>Helmet</h3>
         <p>Sci-fi helmet model with PBR materials.</p>
@@ -129,6 +156,7 @@
 
     <div class="column">
       <div class="model-card">
+        <button onclick="openFullscreen(this)" class="fullscreen-btn">⛶</button>
         <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
         <h3>Vehicle</h3>
         <p>Low-poly vehicle prototype.</p>
@@ -140,6 +168,15 @@
 <script>
   function toggleTheme() {
     document.body.classList.toggle('light');
+  }
+
+  function openFullscreen(button) {
+    const modelViewer = button.closest('.model-card').querySelector('model-viewer');
+    if (modelViewer.requestFullscreen) {
+      modelViewer.requestFullscreen();
+    } else if (modelViewer.webkitRequestFullscreen) {
+      modelViewer.webkitRequestFullscreen();
+    }
   }
 </script>
 
