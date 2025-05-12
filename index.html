@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <title>Responsive 3D Model Gallery</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root {
       --bg-color: #111;
       --text-color: #fff;
       --card-bg: #222;
     }
+
     body.light {
       --bg-color: #f4f4f4;
       --text-color: #000;
@@ -18,16 +20,16 @@
 
     body {
       margin: 0;
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      padding: 2rem;
+      padding: 20px;
       transition: background-color 0.3s, color 0.3s;
     }
 
     .theme-toggle {
-      margin-bottom: 2rem;
-      padding: 0.5rem 1rem;
+      margin-bottom: 20px;
+      padding: 10px 16px;
       background: none;
       border: 1px solid var(--text-color);
       color: var(--text-color);
@@ -36,17 +38,39 @@
       transition: background 0.3s;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* W3Schools-style responsive grid system */
+    .row::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .column {
+      float: left;
+      width: 100%;
+      padding: 10px;
+    }
+
+    @media screen and (min-width: 600px) {
+      .column {
+        width: 50%;
+      }
+    }
+
+    @media screen and (min-width: 900px) {
+      .column {
+        width: 33.33%;
+      }
     }
 
     .model-card {
-      background: var(--card-bg);
-      padding: 1rem;
+      background-color: var(--card-bg);
+      padding: 15px;
       border-radius: 8px;
       text-align: center;
       transition: background 0.3s;
@@ -54,27 +78,10 @@
 
     model-viewer {
       width: 100%;
-      aspect-ratio: 4 / 3;
+      height: 300px;
       background: #000;
       border-radius: 4px;
     }
-
-    @media (max-width: 480px) {
-	  .grid {
-		display: block;
-	  }
-
-	  .model-card {
-		width: 100%;
-		margin-bottom: 2rem;
-	  }
-
-	  model-viewer {
-		width: 100%;
-		height: 50vh;
-	  }
-	}
-
 
     h3 {
       margin-top: 1rem;
@@ -92,22 +99,31 @@
 
 <button class="theme-toggle" onclick="toggleTheme()">Toggle Light/Dark</button>
 
-<h1 style="text-align:center;">3D Model Gallery</h1>
-<div class="grid">
-  <div class="model-card">
-    <model-viewer src="model1.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
-    <h3>Robot</h3>
-    <p>A sample animated robot model with a smooth turntable view.</p>
+<h1>3D Model Gallery</h1>
+
+<div class="row">
+  <div class="column">
+    <div class="model-card">
+      <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
+      <h3>Robot</h3>
+      <p>Sample animated robot model.</p>
+    </div>
   </div>
-  <div class="model-card">
-    <model-viewer src="model2.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
-    <h3>Helmet</h3>
-    <p>Detailed sci-fi helmet scanned with PBR textures.</p>
+
+  <div class="column">
+    <div class="model-card">
+      <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
+      <h3>Helmet</h3>
+      <p>Sci-fi helmet model with PBR materials.</p>
+    </div>
   </div>
-  <div class="model-card">
-    <model-viewer src="model3.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
-    <h3>Vehicle</h3>
-    <p>Low-poly stylized vehicle prototype.</p>
+
+  <div class="column">
+    <div class="model-card">
+      <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
+      <h3>Vehicle</h3>
+      <p>Low-poly vehicle prototype.</p>
+    </div>
   </div>
 </div>
 
