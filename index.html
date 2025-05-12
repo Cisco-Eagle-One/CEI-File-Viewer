@@ -6,6 +6,10 @@
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     :root {
       --bg-color: #111;
       --text-color: #fff;
@@ -43,7 +47,11 @@
       margin-bottom: 30px;
     }
 
-    /* W3Schools-style responsive grid system */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     .row::after {
       content: "";
       display: table;
@@ -101,28 +109,30 @@
 
 <h1>3D Model Gallery</h1>
 
-<div class="row">
-  <div class="column">
-    <div class="model-card">
-      <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
-      <h3>Robot</h3>
-      <p>Sample animated robot model.</p>
+<div class="container">
+  <div class="row">
+    <div class="column">
+      <div class="model-card">
+        <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
+        <h3>Robot</h3>
+        <p>Sample animated robot model.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="column">
-    <div class="model-card">
-      <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
-      <h3>Helmet</h3>
-      <p>Sci-fi helmet model with PBR materials.</p>
+    <div class="column">
+      <div class="model-card">
+        <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
+        <h3>Helmet</h3>
+        <p>Sci-fi helmet model with PBR materials.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="column">
-    <div class="model-card">
-      <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
-      <h3>Vehicle</h3>
-      <p>Low-poly vehicle prototype.</p>
+    <div class="column">
+      <div class="model-card">
+        <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
+        <h3>Vehicle</h3>
+        <p>Low-poly vehicle prototype.</p>
+      </div>
     </div>
   </div>
 </div>
