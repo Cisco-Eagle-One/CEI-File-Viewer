@@ -1,17 +1,32 @@
 [
   {
-    "file": "model1.glb",
-    "title": "Robot",
-    "description": "Sample animated robot model."
+    "section": "Robots",
+    "models": [
+      {
+        "file": "model1.glb",
+        "title": "Robot A",
+        "description": "Bipedal bot with sensors"
+      },
+      {
+        "file": "model2.glb",
+        "title": "Robot B",
+        "description": "Wheeled service bot"
+      }
+    ]
   },
   {
-    "file": "model2.glb",
-    "title": "Helmet",
-    "description": "Sci-fi helmet with PBR textures."
-  },
-  {
-    "file": "model3.glb",
-    "title": "Vehicle",
-    "description": "Low-poly vehicle prototype."
+    "section": "Vehicles",
+    "models": [
+      {
+        "file": "model3.glb",
+        "title": "Truck",
+        "description": "Utility transport vehicle"
+      },
+      {
+        "file": "model4.glb",
+        "title": "Buggy",
+        "description": "Lightweight exploration vehicle"
+      }
+    ]
   }
 ]
