@@ -172,7 +172,7 @@
   <div class="row">
     <div class="column">
       <div class="model-card">
-        <button onclick="openModal('model.glb')" class="fullscreen-btn">⛶</button>
+        <button onclick="openModal('model1.glb')" class="fullscreen-btn">⛶</button>
         <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
         <h3>Robot</h3>
         <p>Sample animated robot model.</p>
@@ -181,7 +181,7 @@
 
     <div class="column">
       <div class="model-card">
-        <button onclick="openModal('model.glb')" class="fullscreen-btn">⛶</button>
+        <button onclick="openModal('model2.glb')" class="fullscreen-btn">⛶</button>
         <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
         <h3>Helmet</h3>
         <p>Sci-fi helmet model with PBR materials.</p>
@@ -190,7 +190,7 @@
 
     <div class="column">
       <div class="model-card">
-        <button onclick="openModal('model.glb')" class="fullscreen-btn">⛶</button>
+        <button onclick="openModal('model3.glb')" class="fullscreen-btn">⛶</button>
         <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
         <h3>Vehicle</h3>
         <p>Low-poly vehicle prototype.</p>
@@ -202,7 +202,7 @@
 <!-- Fullscreen Modal -->
 <div id="fullscreenModal">
   <button class="close-btn" onclick="closeModal()">×</button>
-  <model-viewer id="fullscreenViewer" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
+  <model-viewer id="fullscreenViewer" camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
 </div>
 
 <script>
@@ -214,6 +214,7 @@
     const modal = document.getElementById('fullscreenModal');
     const viewer = document.getElementById('fullscreenViewer');
     viewer.setAttribute('src', modelSrc);
+    viewer.removeAttribute('auto-rotate'); // ✅ Disable in fullscreen
     modal.style.display = 'flex';
   }
 
@@ -221,7 +222,8 @@
     const modal = document.getElementById('fullscreenModal');
     const viewer = document.getElementById('fullscreenViewer');
     modal.style.display = 'none';
-    viewer.removeAttribute('src'); // clean up
+    viewer.removeAttribute('src'); // Clean up
+    viewer.setAttribute('auto-rotate', ''); // ✅ Re-enable after closing
   }
 </script>
 
