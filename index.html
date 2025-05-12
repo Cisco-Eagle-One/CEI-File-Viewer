@@ -12,34 +12,7 @@
 <h1>3D Model Gallery</h1>
 
 <div class="container">
-  <div class="row">
-    <div class="column">
-      <div class="model-card">
-        <button onclick="openModal('model.glb')" class="fullscreen-btn">⛶</button>
-        <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
-        <h3>Robot</h3>
-        <p>Sample animated robot model.</p>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="model-card">
-        <button onclick="openModal('model.glb')" class="fullscreen-btn">⛶</button>
-        <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
-        <h3>Helmet</h3>
-        <p>Sci-fi helmet model with PBR materials.</p>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="model-card">
-        <button onclick="openModal('model.glb')" class="fullscreen-btn">⛶</button>
-        <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
-        <h3>Vehicle</h3>
-        <p>Low-poly vehicle prototype.</p>
-      </div>
-    </div>
-  </div>
+  <div id="modelGrid" class="row"></div>
 </div>
 
 <!-- Fullscreen Modal -->

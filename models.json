@@ -1,0 +1,17 @@
+[
+  {
+    "file": "model1.glb",
+    "title": "Robot",
+    "description": "Sample animated robot model."
+  },
+  {
+    "file": "model2.glb",
+    "title": "Helmet",
+    "description": "Sci-fi helmet with PBR textures."
+  },
+  {
+    "file": "model3.glb",
+    "title": "Vehicle",
+    "description": "Low-poly vehicle prototype."
+  }
+]

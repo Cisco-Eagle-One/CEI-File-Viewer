@@ -1,15 +1,41 @@
+const modelGrid = document.getElementById('modelGrid');
+const fullscreenModal = document.getElementById('fullscreenModal');
+const fullscreenViewer = document.getElementById('fullscreenViewer');
+
+fetch('models.json')
+  .then(response => response.json())
+  .then(models => {
+    models.forEach(model => {
+      const column = document.createElement('div');
+      column.className = 'column';
+
+      column.innerHTML = `
+        <div class="model-card">
+          <button onclick="openModal('models/${model.file}')" class="fullscreen-btn">⛶</button>
+          <model-viewer 
+            src="models/${model.file}" 
+            auto-rotate 
+            camera-controls 
+            shadow-intensity="1" 
+            exposure="0.35">
+          </model-viewer>
+          <h3>${model.title}</h3>
+          <p>${model.description}</p>
+        </div>
+      `;
+
+      modelGrid.appendChild(column);
+    });
+  });
+
 function openModal(modelSrc) {
-  const modal = document.getElementById('fullscreenModal');
-  const viewer = document.getElementById('fullscreenViewer');
-  viewer.setAttribute('src', modelSrc);
-  viewer.removeAttribute('auto-rotate'); // Disable rotation in fullscreen
-  modal.style.display = 'flex';
+  fullscreenViewer.setAttribute('src', modelSrc);
+  fullscreenViewer.removeAttribute('auto-rotate');
+  fullscreenModal.style.display = 'flex';
 }
 
 function closeModal() {
-  const modal = document.getElementById('fullscreenModal');
-  const viewer = document.getElementById('fullscreenViewer');
-  modal.style.display = 'none';
-  viewer.removeAttribute('src'); // Cleanup
-  viewer.setAttribute('auto-rotate', ''); // Re-enable rotation after close
+  fullscreenModal.style.display = 'none';
+  fullscreenViewer.removeAttribute('src');
+  fullscreenViewer.setAttribute('auto-rotate', '');
 }
