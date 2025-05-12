@@ -14,28 +14,28 @@
     "models": [
       {
         "file": "6062173-01-C18 body.glb",
-        "title": "6062173-01-C18 body",
-        "description": "6062173-01-C18 body"
+        "title": "C18 Body",
+        "description": "6062173-01-C18"
       },
 	  {
         "file": "4377099-03 C9 body.glb",
-        "title": "4377099-03 C9 body",
-        "description": "4377099-03 C9 body"
+        "title": "C9 Body",
+        "description": "4377099-03-C9"
       },
 	  {
         "file": "3889354-02-C15 body.glb",
-        "title": "3889354-02-C15 body",
-        "description": "3889354-02-C15 body"
+        "title": "C15 Body",
+        "description": "3889354-02-C15"
       },
 	  {
         "file": "3851657-03-C9 crown only.glb",
-        "title": "3851657-03-C9 crown only",
-        "description": "3851657-03-C9 crown only"
+        "title": "C9 Crown Only",
+        "description": "3851657-03-C9"
       },
 	  {
         "file": "3843698-03- C13 body.glb",
-        "title": "3843698-03- C13 body",
-        "description": "3843698-03- C13 body"
+        "title": "C13 Body",
+        "description": "3843698-03-C13"
       }
     ]
   },
@@ -44,28 +44,28 @@
     "models": [
       {
         "file": "5246478-01-C13 Pin.glb",
-        "title": "5246478-01-C13 Pin",
-        "description": "5246478-01-C13 Pin"
+        "title": "C13 Pin",
+        "description": "5246478-01-C13"
       },
 	  {
         "file": "5245566-01-C9 pin.glb",
-        "title": "5245566-01-C9 pin",
-        "description": "5245566-01-C9 pin"
+        "title": "C9 Pin",
+        "description": "5245566-01-C9"
       },
 	  {
         "file": "5245565-02-C15_C18 pin.glb",
-        "title": "5245565-02-C15_C18 pin",
-        "description": "5245565-02-C15_C18 pin"
+        "title": "C18 Pin",
+        "description": "5245565-02-C15_C18"
       },
 	  {
-        "file": "1807350-06-C15_C18 Pin.glb",
-        "title": "1807350-06-C15_C18 Pin",
-        "description": "1807350-06-C15_C18 Pin"
+        "file": "1807350-06-C15_C18 pin.glb",
+        "title": "C18 Pin",
+        "description": "1807350-06-C15_C18"
       },
       {
         "file": "1663648-05-C9 pin for 2 piece piston.glb",
-        "title": "1663648-05-C9 pin for 2 piece piston",
-        "description": "1663648-05-C9 pin for 2 piece piston"
+        "title": "C9 Pin for 2 Piece Piston",
+        "description": "1663648-05-C9"
       }
     ]
   }
