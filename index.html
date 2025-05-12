@@ -1,65 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>3D Model Gallery</title>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #111;
-      color: #fff;
-      padding: 2rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .model-card {
-      background: #222;
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: center;
-    }
-    model-viewer {
-      width: 100%;
-	  min-width: 400px;
-      height: 500px;
-      background: #000;
-      border-radius: 4px;
-    }
-    h3 {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-    }
-    p {
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-  </style>
-</head>
-<body>
+	<head>
+	  <meta charset="UTF-8">
+	  <title>Responsive 3D Model Gallery</title>
+	  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+	  <style>
+		:root {
+		  --bg-color: #111;
+		  --text-color: #fff;
+		  --card-bg: #222;
+		}
+		body.light {
+		  --bg-color: #f4f4f4;
+		  --text-color: #000;
+		  --card-bg: #fff;
+		}
 
-<h1>3D Model Gallery</h1>
-<div class="grid">
-  <div class="model-card">
-    <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.7"></model-viewer>
-    <h3>Model Title 1</h3>
-    <p>Short description of the first model.</p>
-  </div>
-  <div class="model-card">
-    <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.7"></model-viewer>
-    <h3>Model Title 2</h3>
-    <p>This could be a sculpture or CAD design.</p>
-  </div>
-  <div class="model-card">
-    <model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.7"></model-viewer>
-    <h3>Model Title 3</h3>
-    <p>More context or features here.</p>
-  </div>
-</div>
+		body {
+		  margin: 0;
+		  font-family: sans-serif;
+		  background-color: var(--bg-color);
+		  color: var(--text-color);
+		  padding: 2rem;
+		  transition: background-color 0.3s, color 0.3s;
+		}
 
-</body>
+		.theme-toggle {
+		  margin-bottom: 2rem;
+		  padding: 0.5rem 1rem;
+		  background: none;
+		  border: 1px solid var(--text-color);
+		  color: var(--text-color);
+		  cursor: pointer;
+		  border-radius: 4px;
+		  transition: background 0.3s;
+		}
+
+		.grid {
+		  display: grid;
+		  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		  gap: 2rem;
+		  max-width: 1200px;
+		  margin: 0 auto;
+		}
+
+		.model-card {
+		  background: var(--card-bg);
+		  padding: 1rem;
+		  border-radius: 8px;
+		  text-align: center;
+		  transition: background 0.3s;
+		}
+
+		model-viewer {
+		  width: 100%;
+		  aspect-ratio: 4 / 3;
+		  background: #000;
+		  border-radius: 4px;
+		}
+
+		h3 {
+		  margin-top: 1rem;
+		  font-size: 1.2rem;
+		}
+
+		p {
+		  font-size: 0.9rem;
+		  color: inherit;
+		  opacity: 0.8;
+		}
+	  </style>
+	</head>
+	<body>
+
+		<button class="theme-toggle" onclick="toggleTheme()">Toggle Light/Dark</button>
+
+		<h1 style="text-align:center;">3D Model Gallery</h1>
+		<div class="grid">
+		  <div class="model-card">
+			<model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
+			<h3>Robot</h3>
+			<p>A sample animated robot model with a smooth turntable view.</p>
+		  </div>
+		  <div class="model-card">
+			<model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
+			<h3>Helmet</h3>
+			<p>Detailed sci-fi helmet scanned with PBR textures.</p>
+		  </div>
+		  <div class="model-card">
+			<model-viewer src="model.glb" auto-rotate camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
+			<h3>Vehicle</h3>
+			<p>Low-poly stylized vehicle prototype.</p>
+		  </div>
+		</div>
+
+		<script>
+		  function toggleTheme() {
+			document.body.classList.toggle('light');
+		  }
+		</script>
+
+	</body>
 </html>
