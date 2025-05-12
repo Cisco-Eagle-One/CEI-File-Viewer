@@ -21,11 +21,6 @@
         "file": "model3.glb",
         "title": "Truck",
         "description": "Utility transport vehicle"
-      },
-      {
-        "file": "model4.glb",
-        "title": "Buggy",
-        "description": "Lightweight exploration vehicle"
       }
     ]
   }
