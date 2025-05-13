@@ -26,9 +26,9 @@ fetch('models.json')
           const card = document.createElement('div');
           card.className = 'model-card';
 
-          const orientationAttr = meta.orientation ? `orientation=\"${meta.orientation}\"` : '';
+          const orientationAttr = meta.orientation ? `orientation="${meta.orientation}"` : '';
 
-          // Check which views exist
+          // Check which image views exist
           const views = ['top', 'front', 'side'];
           const buttonHTML = [];
 
@@ -36,28 +36,29 @@ fetch('models.json')
             const imagePath = `content/${path}/${view}.png`;
             const exists = await fetch(imagePath, { method: 'HEAD' }).then(res => res.ok).catch(() => false);
             if (exists) {
-              buttonHTML.push(`<button onclick=\"swapView(this, '${path}', '${view}', '${meta.orientation || ''}')\">${view.charAt(0).toUpperCase() + view.slice(1)}</button>`);
+              buttonHTML.push(`<button onclick="swapView(this, '${path}', '${view}', '${meta.orientation || ''}')">${view.charAt(0).toUpperCase() + view.slice(1)}</button>`);
             }
           }
 
+          // Only add 3D button if there are image buttons
           if (buttonHTML.length > 0) {
-            buttonHTML.unshift(`<button onclick=\"swapView(this, '${path}', '3d', '${meta.orientation || ''}')\">3D</button>`);
+            buttonHTML.unshift(`<button onclick="swapView(this, '${path}', '3d', '${meta.orientation || ''}')" class="active">3D</button>`);
           }
 
           card.innerHTML = `
-            <button onclick=\"openModal('content/${path}/model.glb')\" class=\"fullscreen-btn\">⛶</button>
+            <button onclick="openModal('content/${path}/model.glb')" class="fullscreen-btn">⛶</button>
             <model-viewer 
-              src=\"content/${path}/model.glb\" 
-              poster=\"content/${path}/${meta.poster || 'thumb.jpg'}\"
+              src="content/${path}/model.glb" 
+              poster="content/${path}/${meta.poster || 'thumb.jpg'}"
               auto-rotate 
               camera-controls 
-              shadow-intensity=\"1\" 
-              exposure=\"0.35\"
+              shadow-intensity="1" 
+              exposure="0.35"
               ${orientationAttr}>
             </model-viewer>
             <h3>${meta.title}</h3>
             <p>${meta.description}</p>
-            ${buttonHTML.length > 0 ? `<div class=\"view-buttons\">${buttonHTML.join('')}</div>` : ''}
+            <div class="view-buttons">${buttonHTML.join('')}</div>
           `;
 
           column.appendChild(card);
@@ -80,10 +81,8 @@ function swapView(button, path, view, orientation = '') {
   const existing = card.querySelector('model-viewer, img');
   if (existing) existing.remove();
 
-  // Set active state on buttons
-  card.querySelectorAll('.view-buttons button').forEach(btn => {
-    btn.classList.remove('active');
-  });
+  // Update active state
+  card.querySelectorAll('.view-buttons button').forEach(btn => btn.classList.remove('active'));
   button.classList.add('active');
 
   if (view === '3d') {
@@ -107,7 +106,6 @@ function swapView(button, path, view, orientation = '') {
     card.insertBefore(img, card.querySelector('h3'));
   }
 }
-
 
 function openModal(modelSrc) {
   fullscreenViewer.setAttribute('src', modelSrc);
