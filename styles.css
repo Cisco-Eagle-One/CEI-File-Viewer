@@ -67,9 +67,12 @@ h2 {
 
 model-viewer {
   width: 100%;
-  aspect-ratio: 1 / 1;
   background: #000;
   border-radius: 4px;
+  display: block;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  max-height: 100vw;
 }
 
 
@@ -82,7 +85,7 @@ model-viewer {
   border: none;
   border-radius: 4px;
   padding: 4px 8px;
-  font-size: 0.75rem;
+  font-size: 1rem;
   cursor: pointer;
   z-index: 1;
 }
