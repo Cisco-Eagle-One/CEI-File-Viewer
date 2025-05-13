@@ -112,35 +112,49 @@ function swapView(button, path, view, orientation = '') {
   }
 }
 
+let activeCard = null;
+let activeView = '3d';
+
 function openModal(path, view, orientation = '', views = '') {
   currentPath = path;
   currentOrientation = orientation;
   currentViews = views.split(',');
+  activeView = view;
 
   updateFullscreenView(view);
 
-  const viewButtons = currentViews.map(view =>
-    `<button onclick="updateFullscreenView('${view}')">${view.charAt(0).toUpperCase() + view.slice(1)}</button>`
-  );
-
-  viewButtons.unshift(`<button onclick="updateFullscreenView('3d')" class="active">3D</button>`);
+  const viewButtons = [];
+  if (currentViews.length > 0) {
+    viewButtons.push(`<button onclick="updateFullscreenView('3d')">3D</button>`);
+    currentViews.forEach(view =>
+      viewButtons.push(`<button onclick="updateFullscreenView('${view}')">${view.charAt(0).toUpperCase() + view.slice(1)}</button>`)
+    );
+  }
 
   document.getElementById('fullscreenControls').innerHTML = viewButtons.join('');
+  document.querySelectorAll('#fullscreenControls button').forEach(btn => {
+    if (btn.textContent.toLowerCase() === view) btn.classList.add('active');
+  });
+
   fullscreenModal.style.display = 'flex';
+
+  // Remember the card so we can update it later
+  activeCard = [...document.querySelectorAll('.model-card')].find(card =>
+    card.querySelector(`.fullscreen-btn[onclick*="'${path}'"]`)
+  );
 }
 
 function updateFullscreenView(view) {
+  activeView = view;
   const container = fullscreenModal.querySelector('#fullscreenViewer');
   const existing = container.querySelector('model-viewer, img');
   if (existing) existing.remove();
 
-  fullscreenModal.querySelectorAll('#fullscreenControls button').forEach(btn =>
+  document.querySelectorAll('#fullscreenControls button').forEach(btn =>
     btn.classList.remove('active')
   );
-
-  const activeBtn = Array.from(fullscreenModal.querySelectorAll('#fullscreenControls button')).find(
-    btn => btn.textContent.toLowerCase() === view
-  );
+  const activeBtn = [...document.querySelectorAll('#fullscreenControls button')]
+    .find(btn => btn.textContent.toLowerCase() === view);
   if (activeBtn) activeBtn.classList.add('active');
 
   if (view === '3d') {
@@ -169,4 +183,13 @@ function updateFullscreenView(view) {
 function closeModal() {
   fullscreenModal.style.display = 'none';
   fullscreenViewer.innerHTML = '';
+
+  if (activeCard) {
+    const viewButtons = activeCard.querySelectorAll('.view-buttons button');
+    const btnToTrigger = [...viewButtons].find(btn => btn.textContent.toLowerCase() === activeView);
+    if (btnToTrigger) btnToTrigger.click();
+  }
+
+  activeCard = null;
 }
+
