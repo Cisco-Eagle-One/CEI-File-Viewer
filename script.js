@@ -66,6 +66,22 @@ fetch('models.json')
             <p>${meta.description}</p>
             <div class="view-buttons">${buttonHTML.join('')}</div>
           `;
+		  
+		  // Add dynamic fullscreen button behavior
+		const fsBtn = card.querySelector('.fullscreen-btn');
+		if (fsBtn) {
+		  fsBtn.addEventListener('click', () => {
+			const viewer = card.querySelector('model-viewer');
+			const img = card.querySelector('img');
+			let activeView = '3d';
+			if (img) {
+			  const match = img.src.match(/\/(top|front|side)\.png/i);
+			  if (match) activeView = match[1];
+			}
+			openModal(path, activeView, currentOrientation, availableViews.join(','));
+		  });
+		}
+
 
           column.appendChild(card);
           row.appendChild(column);
