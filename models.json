@@ -6,21 +6,22 @@
   {
     "section": "Piston Body Models",
     "paths": [
-	"6062173-01-C18 body", 
+	
 	"4377099-03 C9 body",
-	"3889354-02-C15 body",
     "3851657-03-C9 crown only",
-    "3843698-03- C13 body"
+    "3843698-03- C13 body",
+	"3889354-02-C15 body",
+	"6062173-01-C18 body"
     ]
   },
   {
     "section": "Wrist Pin Models",
     "paths": [
+	"5245566-01-C9 pin",	
+    "1663648-05-C9 pin for 2 piece piston",
 	"5246478-01-C13 Pin",
-    "5245566-01-C9 pin",
     "5245565-02-C15_C18 pin",
-    "1807350-06-C15_C18 Pin",
-    "1663648-05-C9 pin for 2 piece piston"
+    "1807350-06-C15_C18 Pin"
 	]
   }
 ]
