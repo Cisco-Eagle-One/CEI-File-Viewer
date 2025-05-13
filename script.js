@@ -26,27 +26,38 @@ fetch('models.json')
           const card = document.createElement('div');
           card.className = 'model-card';
 
-          const orientationAttr = meta.orientation ? `orientation="${meta.orientation}"` : '';
+          const orientationAttr = meta.orientation ? `orientation=\"${meta.orientation}\"` : '';
+
+          // Check which views exist
+          const views = ['top', 'front', 'side'];
+          const buttonHTML = [];
+
+          for (const view of views) {
+            const imagePath = `content/${path}/${view}.png`;
+            const exists = await fetch(imagePath, { method: 'HEAD' }).then(res => res.ok).catch(() => false);
+            if (exists) {
+              buttonHTML.push(`<button onclick=\"swapView(this, '${path}', '${view}', '${meta.orientation || ''}')\">${view.charAt(0).toUpperCase() + view.slice(1)}</button>`);
+            }
+          }
+
+          if (buttonHTML.length > 0) {
+            buttonHTML.unshift(`<button onclick=\"swapView(this, '${path}', '3d', '${meta.orientation || ''}')\">3D</button>`);
+          }
 
           card.innerHTML = `
-            <button onclick="openModal('content/${path}/model.glb')" class="fullscreen-btn">⛶</button>
+            <button onclick=\"openModal('content/${path}/model.glb')\" class=\"fullscreen-btn\">⛶</button>
             <model-viewer 
-              src="content/${path}/model.glb" 
-              poster="content/${path}/${meta.poster || 'thumb.jpg'}"
+              src=\"content/${path}/model.glb\" 
+              poster=\"content/${path}/${meta.poster || 'thumb.jpg'}\"
               auto-rotate 
               camera-controls 
-              shadow-intensity="1" 
-              exposure="0.35"
+              shadow-intensity=\"1\" 
+              exposure=\"0.35\"
               ${orientationAttr}>
             </model-viewer>
             <h3>${meta.title}</h3>
             <p>${meta.description}</p>
-            <div class="view-buttons">
-              <button onclick="swapView(this, '${path}', '3d', '${meta.orientation || ''}')">3D</button>
-              <button onclick="swapView(this, '${path}', 'top', '${meta.orientation || ''}')">Top</button>
-              <button onclick="swapView(this, '${path}', 'front', '${meta.orientation || ''}')">Front</button>
-              <button onclick="swapView(this, '${path}', 'side', '${meta.orientation || ''}')">Side</button>
-            </div>
+            ${buttonHTML.length > 0 ? `<div class=\"view-buttons\">${buttonHTML.join('')}</div>` : ''}
           `;
 
           column.appendChild(card);
