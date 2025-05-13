@@ -17,7 +17,11 @@
 <!-- Fullscreen Modal -->
 <div id="fullscreenModal">
   <button class="close-btn" onclick="closeModal()">×</button>
-  <model-viewer id="fullscreenViewer" camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
+
+  <!-- Viewer holds the model or image -->
+  <div id="fullscreenViewer"></div>
+
+  <!-- This sits outside and overlays on top -->
   <div id="fullscreenControls" class="view-buttons"></div>
 </div>
 
