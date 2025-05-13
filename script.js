@@ -80,6 +80,12 @@ function swapView(button, path, view, orientation = '') {
   const existing = card.querySelector('model-viewer, img');
   if (existing) existing.remove();
 
+  // Set active state on buttons
+  card.querySelectorAll('.view-buttons button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  button.classList.add('active');
+
   if (view === '3d') {
     const viewer = document.createElement('model-viewer');
     viewer.setAttribute('src', `content/${path}/model.glb`);
@@ -97,9 +103,11 @@ function swapView(button, path, view, orientation = '') {
     img.alt = `${view} view`;
     img.onerror = () => swapView(button, path, '3d', orientation);
     img.style.width = '100%';
+    img.style.aspectRatio = '1 / 1';
     card.insertBefore(img, card.querySelector('h3'));
   }
 }
+
 
 function openModal(modelSrc) {
   fullscreenViewer.setAttribute('src', modelSrc);
