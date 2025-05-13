@@ -21,6 +21,12 @@ h2 {
   color: #ccc;
 }
 
+#loadingMessage {
+  text-align: center;
+  font-style: italic;
+  color: #999;
+  padding: 20px;
+}
 
 .container {
   max-width: 1200px;
@@ -66,16 +72,6 @@ model-viewer {
   border-radius: 4px;
 }
 
-h3 {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-}
-
-p {
-  font-size: 0.9rem;
-  color: #ccc;
-}
-
 .fullscreen-btn {
   position: absolute;
   top: 10px;
@@ -92,6 +88,25 @@ p {
 
 .fullscreen-btn:hover {
   background-color: rgba(255, 255, 255, 1);
+}
+
+.view-buttons {
+  margin-top: 10px;
+}
+
+.view-buttons button {
+  margin: 2px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.view-buttons button:hover {
+  background-color: #444;
 }
 
 /* Fullscreen Modal */

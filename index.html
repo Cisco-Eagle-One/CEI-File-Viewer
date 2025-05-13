@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>3D Model Gallery</title>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,7 +10,9 @@
 
 <h1>3D Model Gallery</h1>
 
-<div class="container" id="modelSections"></div>
+<div class="container" id="modelSections">
+  <p id="loadingMessage">Loading models...</p>
+</div>
 
 <!-- Fullscreen Modal -->
 <div id="fullscreenModal">
@@ -19,6 +20,7 @@
   <model-viewer id="fullscreenViewer" camera-controls shadow-intensity="1" exposure="0.35"></model-viewer>
 </div>
 
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

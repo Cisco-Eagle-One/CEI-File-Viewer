@@ -1,72 +1,26 @@
 [
 {
     "section": "",
-    "models": [
-      {
-        "file": "2006 01 0018 Roach Conveyors Only.glb",
-        "title": "Roach Conveyors Only",
-        "description": "2006 01 0018"
-      }
-    ]
+    "paths": ["2006 01 0018 Roach Conveyors Only"]
   },
   {
     "section": "Piston Body Models",
-    "models": [
-      {
-        "file": "6062173-01-C18 body.glb",
-        "title": "C18 Body",
-        "description": "6062173-01-C18"
-      },
-	  {
-        "file": "4377099-03 C9 body.glb",
-        "title": "C9 Body",
-        "description": "4377099-03-C9"
-      },
-	  {
-        "file": "3889354-02-C15 body.glb",
-        "title": "C15 Body",
-        "description": "3889354-02-C15"
-      },
-	  {
-        "file": "3851657-03-C9 crown only.glb",
-        "title": "C9 Crown Only",
-        "description": "3851657-03-C9"
-      },
-	  {
-        "file": "3843698-03- C13 body.glb",
-        "title": "C13 Body",
-        "description": "3843698-03-C13"
-      }
+    "paths": [
+	"6062173-01-C18 body", 
+	"4377099-03 C9 body",
+	"3889354-02-C15 body",
+    "3851657-03-C9 crown only",
+    "3843698-03- C13 body"
     ]
   },
   {
     "section": "Wrist Pin Models",
-    "models": [
-      {
-        "file": "5246478-01-C13 Pin.glb",
-        "title": "C13 Pin",
-        "description": "5246478-01-C13"
-      },
-	  {
-        "file": "5245566-01-C9 pin.glb",
-        "title": "C9 Pin",
-        "description": "5245566-01-C9"
-      },
-	  {
-        "file": "5245565-02-C15_C18 pin.glb",
-        "title": "C18 Pin",
-        "description": "5245565-02-C15_C18"
-      },
-	  {
-        "file": "1807350-06-C15_C18 Pin.glb",
-        "title": "C18 Pin",
-        "description": "1807350-06-C15_C18"
-      },
-      {
-        "file": "1663648-05-C9 pin for 2 piece piston.glb",
-        "title": "C9 Pin for 2 Piece Piston",
-        "description": "1663648-05-C9"
-      }
-    ]
+    "paths": [
+	"5246478-01-C13 Pin",
+    "5245566-01-C9 pin",
+    "5245565-02-C15_C18 pin",
+    "1807350-06-C15_C18 Pin",
+    "1663648-05-C9 pin for 2 piece piston"
+	]
   }
 ]
