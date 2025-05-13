@@ -147,22 +147,31 @@ model-viewer {
 #fullscreenViewer {
   width: 100%;
   height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #fullscreenViewer model-viewer,
 #fullscreenViewer img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: calc(100vh - 80px);
   object-fit: contain;
 }
 
 #fullscreenControls {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   position: absolute;
   bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10001;
+  left: 0;
+  right: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
